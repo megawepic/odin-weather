@@ -1,15 +1,17 @@
 {
   "name": "odin-weather",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "devDependencies": {
     "css-loader": "^7.1.4",
     "html-webpack-plugin": "^5.6.7",
