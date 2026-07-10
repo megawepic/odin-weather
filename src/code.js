@@ -7,6 +7,9 @@ const filtered = document.getElementById("suggestions");
 const cityInput = document.getElementById("city-input");
 const search = document.getElementById("search-btn");
 const location = document.getElementById("location");
+const tempDisplay = document.getElementById("temp-display");
+
+let isCelcius = 0;
 
 async function getweather(city) {
   const response = await fetch(
@@ -14,11 +17,23 @@ async function getweather(city) {
   );
   const weatherData = await response.json();
   const currTempF = weatherData.currentConditions.temp;
-  const currTempC = currTempF - 32;
   const currHumidity = weatherData.currentConditions.humidity;
   const currCloud = weatherData.currentConditions.cloudcover;
 
-  weatherTemp.innerHTML = "Current Temperature: " + currTempF + " °F";
+  const tempConvert = document.createElement("button");
+  tempConvert.innerHTML = "Convert Temperature";
+  tempConvert.classList.add("hidden");
+  tempConvert.addEventListener("click", () => {
+    isCelcius = !isCelcius;
+    displayTemperature(currTempF);
+  });
+
+  displayTemperature(currTempF);
+  if (weatherTemp.childElementCount > 1) {
+    weatherTemp.lastChild.remove();
+  }
+  weatherTemp.appendChild(tempConvert);
+
   weatherHumidity.innerHTML = "Current Humidity: " + currHumidity + "%";
   weatherCloud.innerHTML = "Current Cloud Cover: " + currCloud + "%";
 
@@ -62,7 +77,15 @@ cityInput.addEventListener("input", () => {
 search.addEventListener("click", () => {
   location.innerHTML = cityInput.value;
   const city = cityInput.value.split(",")[0];
-
+  isCelcius = 0;
   getweather(city);
   cityInput.value = "";
 });
+
+function displayTemperature(tempF) {
+  if (isCelcius) {
+    tempDisplay.innerHTML = `Current Temperature: ${(((tempF - 32) * 5) / 9).toFixed(1)} °C`;
+  } else {
+    tempDisplay.innerHTML = `Current Temperature: ${tempF.toFixed(1)} °F`;
+  }
+}

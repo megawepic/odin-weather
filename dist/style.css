@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-rows: auto 3fr auto;
+}
+
+header {
+  font-size: 2rem;
+  background-color: green;
+  padding: 20px;
+}
+
+.search-container {
+  display: flex;
+  gap: 1rem;
+  padding: 12px;
+}
+
+#suggestions {
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.search-function input,
+#suggestions {
+  width: 15rem;
+  border: solid black 1px;
+}
+
+.search-function input,
+.cities,
+.search button {
+  height: 30px;
+  align-items: center;
+}
+
+.cities:hover {
+  background-color: blue;
+  cursor: default;
+  color: white;
+}
+
+.footer {
+  display: flex;
+  background-color: green;
+  align-items: center;
+  justify-content: center;
+}
+
+#weather-conditions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#output {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+}
+
+#location {
+  grid-column: 1/-1;
+  padding: 24px;
+  font-size: 2.5rem;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
