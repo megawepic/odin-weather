@@ -4,6 +4,10 @@ body {
 
   display: grid;
   grid-template-rows: auto 3fr auto;
+
+  background-image: url(adb33e8d496dfa9a1e00.png);
+  background-repeat: repeat;
+  background-size: 250px;
 }
 
 .main {
@@ -13,7 +17,10 @@ body {
 
 header {
   font-size: 2rem;
-  background-color: green;
+  background: rgba(246, 201, 216, 0.85);
+  backdrop-filter: blur(6px);
+
+  color: #2c5d87;
   padding: 20px;
 }
 
@@ -51,7 +58,10 @@ header {
 
 .footer {
   display: flex;
-  background-color: green;
+  background: rgba(246, 201, 216, 0.85);
+  backdrop-filter: blur(6px);
+
+  color: #2c5d87;
   align-items: center;
   justify-content: center;
 }
@@ -80,9 +90,14 @@ header {
   gap: 12px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(200, 220, 255);
+  background: rgba(246, 201, 216, 0.6);
+  color: #2c5d87;
   margin: 12px;
   border-radius: 8px;
   border: solid black;
+}
+
+img {
+  height: 10rem;
 }
 
